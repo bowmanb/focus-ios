@@ -50,4 +50,8 @@ class AppInfo {
     static let isKlar: Bool = AppInfo.productName.contains("Klar")
     
     static let config: AppConfig = AppInfo.isKlar ? KlarAppConfig() : FocusAppConfig()
+    
+    open class func isSimulator() -> Bool {
+        return ProcessInfo.processInfo.environment["SIMULATOR_ROOT"] != nil
+    }
 }

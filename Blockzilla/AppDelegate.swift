@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if BUDDYBUILD
             BuddyBuildSDK.setup()
         #endif
+        // Set up Sentry
+        let sendUsageData = Settings.getToggle(.sendAnonymousUsageData) 
+        SentryIntegration.shared.setup(sendUsageData: sendUsageData)
         
         // Set up Telemetry
         let telemetryConfig = Telemetry.default.configuration
