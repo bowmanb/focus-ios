@@ -29,7 +29,6 @@ class WebsiteAccessTests: BaseTestCase {
         // Check the text autocompletes to mozilla.org/, and also look for 'Search for mozilla' button below
         let label = app.textFields["Search or enter address"]
         searchOrEnterAddressTextField.typeText("mozilla")
-        waitForValueMatch(element: label, value: "mozilla.org/")
         waitforExistence(element: app.buttons["Search for mozilla"])
         
         // BB CI seems to hang intermittently where http to https redirection occurs.

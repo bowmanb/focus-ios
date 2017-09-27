@@ -29,7 +29,6 @@ class PastenGoTest: BaseTestCase {
         searchOrEnterAddressTextField.typeText("mozilla")
         
         // Check clipboard suggestion is shown
-        waitForValueMatch(element: searchOrEnterAddressTextField, value: "mozilla.org/")
         waitforExistence(element: app.buttons["Search for mozilla"])
         waitforExistence(element: app.buttons["Search for " + clipboardString])
         app.typeText("\n")

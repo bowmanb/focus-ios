@@ -21,7 +21,7 @@ class WebsiteMemoryTest: BaseTestCase {
         var googleSearchField = app.webViews.searchFields["Search"]
         
         // Enter 'google' on the search field to go to google site
-        loadWebPage("google")
+        loadWebPage("https://www.google.com")
         if app.webViews.otherElements["Search"].exists {
             googleSearchField =  app.webViews.otherElements["Search"]
         }
@@ -41,7 +41,7 @@ class WebsiteMemoryTest: BaseTestCase {
         // revisit google site
         app.buttons["ERASE"].tap()
         waitforExistence(element: app.staticTexts["Your browsing history has been erased."])
-        loadWebPage("google")
+        loadWebPage("https://www.google.com")
         waitforExistence(element: googleSearchField)
         googleSearchField.tap()
         

@@ -27,7 +27,6 @@ class URLBar: UIView {
 
     fileprivate let cancelButton = InsetButton()
     fileprivate let deleteButton = InsetButton()
-    fileprivate let domainCompletion = DomainCompletion()
 
     private let toolset = BrowserToolset()
     private let urlTextContainer = UIView()
@@ -111,7 +110,6 @@ class URLBar: UIView {
         urlText.rightViewMode = .whileEditing
         urlText.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .vertical)
         urlText.autocompleteDelegate = self
-        urlText.completionSource = domainCompletion
         urlText.accessibilityIdentifier = "URLBar.urlText"
         urlText.placeholder = UIConstants.strings.urlTextPlaceholder
         textAndLockContainer.addSubview(urlText)

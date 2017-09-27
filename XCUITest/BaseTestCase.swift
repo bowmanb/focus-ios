@@ -79,20 +79,6 @@ class BaseTestCase: XCTestCase {
         }
     }
     
-    func waitForValueMatch(element:XCUIElement, value:String, file: String = #file, line: UInt = #line) {
-        let predicateText = "value MATCHES " + "'" + value + "'"
-        let valueCheck = NSPredicate(format: predicateText)
-        
-        expectation(for: valueCheck, evaluatedWith: element, handler: nil)
-        waitForExpectations(timeout: 20) {(error) -> Void in
-            if (error != nil) {
-                let message = "Failed to find \(element) after 20 seconds."
-                self.recordFailure(withDescription: message,
-                                   inFile: file, atLine: Int(line), expected: true)
-            }
-        }
-    }
-    
     func waitForValueContains(element:XCUIElement, value:String, file: String = #file, line: UInt = #line) {
         let predicateText = "value CONTAINS " + "'" + value + "'"
         let valueCheck = NSPredicate(format: predicateText)
